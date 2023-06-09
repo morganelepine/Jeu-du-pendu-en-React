@@ -5,7 +5,13 @@
     src: url("/fonts/Happy-Day.ttf");
 }
 
+@font-face {
+    font-family: "Glacial-Indifference";
+    src: url("/fonts/GlacialIndifference-Regular.otf");
+}
+
 body {
+    font-family: "Glacial-Indifference";
     background-image: url("../img/pexels-jess-loiterton-4603529.jpg");
     background-size: cover;
     -webkit-animation: slidein 20s;
@@ -43,48 +49,182 @@ body {
     }
 }
 
-/* body {
-    background: linear-gradient(-45deg, #fbf8cc, #fde4cf, #ffcfd2, #f1c0e8);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    height: 100vh;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-} */
-
 .app {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 1%;
-    font-family: "Lato", sans-serif;
-    /* background: rgba(75, 75, 250, 0.3); */
 }
 
 /*-----------TEXTE INTRO */
 
 h1 {
     font-size: 60px;
+    text-transform: uppercase;
+    color: #6f2dbd;
+    font-family: "Happy-Day";
+    letter-spacing: 5px;
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.button {
+    font-size: 18px;
+    font-family: "Glacial-Indifference";
+    color: #6f2dbd;
+    text-align: center;
+    margin: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: white;
+    background-color: #6f2dbd;
+    font-weight: bold;
+}
+
+/*-----------START SCREEN */
+
+.startGame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.giftButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.startGameButton {
+    font-family: "Happy-Day";
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #6f2dbd;
+    margin: 20px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.startGameButton:hover {
+    color: white;
+    background-color: #6f2dbd;
+}
+
+/*-----------GIFT SCREEN */
+
+.gift {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.h1Gift {
+    font-size: 40px;
     margin: 0;
     text-transform: uppercase;
     color: #6f2dbd;
     font-family: "Happy-Day";
     letter-spacing: 5px;
+    margin: 30px;
 }
 
-.text {
+.textGift {
+    max-width: 900px;
     text-align: center;
-    margin: 30px;
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.adressGift {
+    font-style: italic;
+}
+
+.buttonGift {
+    font-size: 20px;
+    text-align: center;
+    font-family: "Glacial-Indifference";
+    color: #6f2dbd;
+    margin: 20px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttonGift {
+    font-size: 20px;
+    text-align: center;
+    font-family: "Glacial-Indifference";
+    color: #6f2dbd;
+    margin: 20px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttonGift:hover {
+    color: white;
+    background-color: #6f2dbd;
+}
+
+.buttonGiftGame {
+    font-size: 16px;
+    text-align: center;
+    font-family: "Glacial-Indifference";
+    background-color: #6f2dbd;
+    color: white;
+    margin: 20px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.getGiftButton {
+    font-family: "Happy-Day";
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #6f2dbd;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 20px;
+    padding: 24px 24px 20px 24px;
+    border: solid #6f2dbd;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.getGiftButton:hover {
+    color: white;
+    background-color: #6f2dbd;
+}
+
+.imageGift {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.image {
+    width: 200px;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 /*-----------COMPONENT UNDERSCOREWORD */
@@ -183,18 +323,19 @@ h1 {
 
 /*ne s'exécute que quand la largeur d'écran est <= 500px*/
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .app {
-        margin: 2%;
+        margin: 1%;
     }
     h1 {
-        font-size: 40px;
+        font-size: 30px;
         letter-spacing: 3px;
+        margin: 30px 0 10px 0;
     }
     .letter {
         font-size: 30px;
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         margin: 10px;
         padding-top: 5px;
         border-radius: 35px;
@@ -204,19 +345,19 @@ h1 {
         margin: 0;
     }
     .heart {
-        height: 10px;
-        width: 10px;
+        height: 6px;
+        width: 6px;
     }
     .heart:before,
     .heart:after {
-        height: 10px;
-        width: 10px;
+        height: 6px;
+        width: 6px;
     }
     .heart:before {
-        top: -7px;
+        top: -4px;
     }
     .heart:after {
-        left: 7px;
+        left: 4px;
     }
     .underscoreWord {
         margin: 25px 5px 0 5px;

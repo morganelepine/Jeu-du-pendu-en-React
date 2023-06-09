@@ -1,9 +1,17 @@
-const StartGame = ({ onClick }) => {
+import { Link } from "react-router-dom";
+
+const StartGame = () => {
     return (
-        <div>
-            <button onClick={onClick} className="startGame">
-                Relancer le jeu
-            </button>
+        <div className="startGame">
+            <h1>Tu veux un cadeau ?</h1>
+            <div className="startGameButtons">
+                <Link to="/game">
+                    <button className="startGameButton">Oui</button>
+                </Link>
+                <Link to="/game">
+                    <button className="startGameButton">Ouiiiiiiiii</button>
+                </Link>
+            </div>
         </div>
     );
 };

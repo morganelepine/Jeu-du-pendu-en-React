@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../App.css";
-import Alphabet from "./Alphabet";
-import UnderscoreWord from ".UnderscoreWord";
-import StartGame from ".StartGame";
-import Confettis from ".Confettis";
+import Alphabet from "./Alphabet.js";
+import Heart from "./Heart";
+import Confettis from "./Confettis";
 
-function Game() {
-    const [attempt, setAttempt] = useState(5);
+function App() {
+    const [word, setWord] = useState([]);
+    const [hiddenWord, setHiddenWord] = useState([]);
+    const [attempt, setAttempt] = useState(0);
+    const [maxAttempt, setMaxAttempt] = useState(7);
     const [rightLetter, setRightLetter] = useState([]);
     const [wrongLetter, setWrongLetter] = useState([]);
-    const [hiddenWord, setHiddenWord] = useState("");
     const [win, setWin] = useState(false);
 
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toLowerCase().split("");
@@ -24,28 +25,37 @@ function Game() {
         "azimut",
         "moult",
         "thym",
+        "printemps",
+        "ski",
+        "boxe",
+        "lynx",
+        "ortie",
+        "rugby",
+        "crayon",
+        "gospel",
+        "bretzel",
+        "cymbale",
     ];
 
-    //Choisir aléatoirement un mot du dictionnaire
+    const refreshPage = () => {
+        window.location.reload(false);
+    };
+
+    //Choisir aléatoirement, un mot du dictionnaire
     const generateWord = () => {
-        const randomIndex = Math.floor(Math.random() * 9);
+        const randomIndex = Math.floor(Math.random() * 19);
         const wordToFind = dictionary[randomIndex].split("");
         return wordToFind;
     };
-    // const word = generateWord();
-    const word = "monstera";
 
-    //Le reproduire en version tiret-vide
+    //Le reproduire en version underscore
     const generateunderscoreWord = (word) => {
         let emptyWord = [];
         for (let i = 0; i < word.length; i++) {
-            emptyWord[i] = " ___ ";
+            emptyWord[i] = " _ ";
         }
         return emptyWord;
     };
-    const underscoreWord = generateunderscoreWord(word);
-    // setHiddenWord(underscoreWord);
-    // console.log(hiddenWord);
 
     //Vérifier si le mot contient la lettre sélectionnée
     const selectLetter = (letter) => {
@@ -55,12 +65,16 @@ function Game() {
         //Si la letter se trouve dans le word, remplacer l'underscore par la letter
         for (let i = 0; i < word.length; i++) {
             if (letter === word[i]) {
-                underscoreWord[i] = letter;
-                setHiddenWord(underscoreWord);
+                hiddenWord[i] = letter;
                 console.log("hiddenWord : ", hiddenWord);
+                console.log("word : ", word);
                 arrayRight.push(letter);
                 setRightLetter(rightLetter + arrayRight);
                 console.log("Right letters : ", rightLetter);
+                const selectedLetter = document.getElementById(letter);
+                selectedLetter.style.setProperty("color", "white");
+                selectedLetter.style.setProperty("background-color", "#a663cc");
+                //useRef
             }
         }
 
@@ -68,54 +82,81 @@ function Game() {
         if (word.indexOf(letter) === -1) {
             arrayWrong.push(letter);
             setWrongLetter(wrongLetter + " " + arrayWrong);
-            setAttempt(attempt - 1);
+            setMaxAttempt(maxAttempt - 1);
+            const selectedLetter = document.getElementById(letter);
+            // selectedLetter.style.setProperty("color", "#ffc2d1");
+            // selectedLetter.style.setProperty("background-color", "#fff0f2");
+            selectedLetter.style.setProperty("opacity", "0.2");
         }
 
         //Etat du jeu
-        if (rightLetter.length === word.length - 1) {
+        if (hiddenWord.toString() === word.toString()) {
             // alert("Gagné !");
             setWin(true);
-        } else if (attempt === 1) {
+        } else if (maxAttempt === 1) {
             alert('Perdu ! Le mot était "' + word + '"');
+            refreshPage();
         }
     };
 
-    // useEffect(() => {
-    //     generateWord();
-    // }, [win]);
+    useEffect(() => {
+        setWord(generateWord);
+        console.log(word);
+    }, []);
+
+    useEffect(() => {
+        setHiddenWord(generateunderscoreWord(word));
+    }, [word]);
 
     return (
         <>
-            <div className="app">
-                <div>{win === true ? <Confettis /> : <StartGame />}</div>
+            {win === true ? (
+                <Confettis />
+            ) : (
+                <div>
+                    <div>
+                        <button
+                            onClick={() => window.location.reload(false)}
+                            className="button"
+                        >
+                            Relancer le jeu
+                        </button>
+                    </div>
+                    <div className="app">
+                        <h1>Qui veut gagner un cadeau ?</h1>
+                        {/* <p>Le mot à trouver est : {word}</p> */}
 
-                <div className="text">
-                    <p>Le mot à trouver est : {word}</p>
-                    <p>Essais restants : {attempt}</p>
-                    <p>Lettres déjà utilisées : {wrongLetter}</p>
-                </div>
+                        <div>
+                            <p className="attemptText">
+                                Plus que {maxAttempt} essais
+                            </p>
+                            {
+                                <Heart
+                                    attempt={attempt}
+                                    maxAttempt={maxAttempt}
+                                />
+                            }
+                        </div>
 
-                <div className="underscore">
-                    {hiddenWord}
-                    {/* {underscoreWord.map((letter) => (
-                    <UnderscoreWord letter={letter} />
-                ))} */}
-                    {/* {!hiddenWord.includes(alphabet)
-                    ? { underscoreWord }
-                    : { hiddenWord }} */}
-                </div>
+                        <div className="underscore">
+                            {hiddenWord.map((letter) => (
+                                <p className="underscoreWord">{letter}</p>
+                            ))}
+                        </div>
 
-                <div className="alphabet">
-                    {alphabet.map((letter) => (
-                        <Alphabet
-                            letter={letter}
-                            onClick={() => selectLetter(letter)}
-                        />
-                    ))}
+                        <div className="alphabet">
+                            {alphabet.map((letter) => (
+                                <Alphabet
+                                    letter={letter}
+                                    onClick={() => selectLetter(letter)}
+                                />
+                            ))}
+                        </div>
+                    </div>
                 </div>
-            </div>
+            )}
         </>
     );
 }
 
-export default Game;
+export default App;
