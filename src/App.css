@@ -1,38 +1,225 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap");
+
+@font-face {
+    font-family: "Happy-Day";
+    src: url("/fonts/Happy-Day.ttf");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    background-image: url("../img/pexels-jess-loiterton-4603529.jpg");
+    background-size: cover;
+    -webkit-animation: slidein 20s;
+    animation: slidein 20s;
+
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@-webkit-keyframes slidein {
+    from {
+        background-position: top;
+        background-size: 3000px;
+    }
+    to {
+        background-position: -100px 0px;
+        background-size: 2750px;
+    }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes slidein {
+    from {
+        background-position: top;
+        background-size: 3000px;
+    }
+    to {
+        background-position: -400px 0px;
+        background-size: 2750px;
+    }
 }
 
-.App-link {
-  color: #61dafb;
+/* body {
+    background: linear-gradient(-45deg, #fbf8cc, #fde4cf, #ffcfd2, #f1c0e8);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+} */
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1%;
+    font-family: "Lato", sans-serif;
+    /* background: rgba(75, 75, 250, 0.3); */
+}
+
+/*-----------TEXTE INTRO */
+
+h1 {
+    font-size: 60px;
+    margin: 0;
+    text-transform: uppercase;
+    color: #6f2dbd;
+    font-family: "Happy-Day";
+    letter-spacing: 5px;
+}
+
+.text {
+    text-align: center;
+    margin: 30px;
+}
+
+/*-----------COMPONENT UNDERSCOREWORD */
+
+.underscore {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.underscoreWord {
+    margin: 0 15px;
+    font-size: 60px;
+    color: #47126b;
+    text-transform: uppercase;
+}
+
+/*-----------COMPONENT ALPHABET */
+
+.alphabet {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    max-width: 900px;
+}
+
+.letter {
+    font-size: 40px;
+    font-family: "Happy-Day";
+    text-transform: uppercase;
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+    padding-top: 5px;
+    background-color: white;
+    color: #a663cc;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+.letter:hover {
+    background-color: #a663cc;
+    color: white;
+}
+
+/*-----------COEURS */
+
+.attemptText {
+    text-align: center;
+    font-style: italic;
+    color: #47126b;
+}
+
+#life {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#life .heart .empty {
+    opacity: 0.3;
+}
+
+.heart {
+    background-color: #fff0f2;
+    display: inline-block;
+    height: 20px;
+    margin: 0 20px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 20px;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    background-color: #fff0f2;
+    border-radius: 50%;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+}
+
+.heart:before {
+    top: -10px;
+    left: 0;
+}
+
+.heart:after {
+    left: 10px;
+    top: 0;
+}
+
+/*ne s'exécute que quand la largeur d'écran est <= 500px*/
+
+@media screen and (max-width: 500px) {
+    .app {
+        margin: 2%;
+    }
+    h1 {
+        font-size: 40px;
+        letter-spacing: 3px;
+    }
+    .letter {
+        font-size: 30px;
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        padding-top: 5px;
+        border-radius: 35px;
+    }
+    #life {
+        text-align: center;
+        margin: 0;
+    }
+    .heart {
+        height: 10px;
+        width: 10px;
+    }
+    .heart:before,
+    .heart:after {
+        height: 10px;
+        width: 10px;
+    }
+    .heart:before {
+        top: -7px;
+    }
+    .heart:after {
+        left: 7px;
+    }
+    .underscoreWord {
+        margin: 25px 5px 0 5px;
+        font-size: 40px;
+    }
 }
