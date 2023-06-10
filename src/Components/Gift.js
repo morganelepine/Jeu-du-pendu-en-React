@@ -38,18 +38,20 @@ const Gift = () => {
                 <p className="textGift">
                     La Bulle Ecureuil aura le plaisir d'accueillir Caly et Rémi
                     pour une escapade romantique et champêtre en amoureux.{" "}
-                    <br />
-                    <br />
+                </p>
+                <p className="textGift">
                     Installez-vous confortablement dans votre lit pour profiter
                     de la vue sur le ciel étoilé. Le matin, les rayons du soleil
                     et les bruits de la nature viendront vous réveiller tout en
-                    douceur. <br />
-                    <br />
+                    douceur.{" "}
+                </p>
+                <p className="textGift">
                     La bulle dispose d’une terrasse pour que vous puissiez
                     pleinement profiter de votre petit-déjeuner, inclus et livré
                     directement à votre porte, ou tout simplement, vous
-                    installer et vous détendre. <br />
-                    <br />
+                    installer et vous détendre.
+                </p>
+                <p className="textGift">
                     Pour un moment de détente parfait, rien ne vaut une séance
                     dans un jacuzzi, à proximité de votre bulle, dans une
                     dépendance privatisée.
