@@ -14,8 +14,9 @@ body {
     font-family: "Glacial-Indifference";
     background-image: url("../img/pexels-jess-loiterton-4603529.jpg");
     background-size: cover;
-    -webkit-animation: slidein 20s;
-    animation: slidein 20s;
+    background-position: bottom;
+    -webkit-animation: slidein 10s;
+    animation: slidein 10s;
 
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
@@ -68,13 +69,17 @@ h1 {
     margin: 0 0 20px 0;
 }
 
+.intro {
+    text-align: center;
+}
+
 .button {
-    font-size: 18px;
+    font-size: 16px;
     font-family: "Glacial-Indifference";
     color: #6f2dbd;
     text-align: center;
     margin: 10px;
-    padding: 8px 12px;
+    padding: 6px 10px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -92,15 +97,12 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     height: 100vh;
 }
 
 .giftButton {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
     height: 100vh;
 }
 
@@ -190,7 +192,7 @@ h1 {
     background-color: #6f2dbd;
     color: white;
     margin: 20px;
-    padding: 10px 16px;
+    padding: 8px 7px 10px 7px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -233,7 +235,7 @@ h1 {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 .underscoreWord {
@@ -280,9 +282,11 @@ h1 {
     color: #47126b;
 }
 
+.attempt {
+    margin-bottom: 30px;
+}
+
 #life {
-    margin-top: 30px;
-    margin-bottom: 50px;
     text-align: center;
 }
 
@@ -325,7 +329,7 @@ h1 {
 
 @media screen and (max-width: 600px) {
     .app {
-        margin: 1%;
+        margin: 2%;
     }
     h1 {
         font-size: 30px;
@@ -362,5 +366,8 @@ h1 {
     .underscoreWord {
         margin: 25px 5px 0 5px;
         font-size: 40px;
+    }
+    .textGift {
+        margin: 0 20px;
     }
 }

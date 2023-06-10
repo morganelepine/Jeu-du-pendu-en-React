@@ -57,7 +57,7 @@ const Gift = () => {
                 <p className="adressGift">
                     Le P'tit Monde du Morvan <br />
                     Quarré-Les-Tombes <br />
-                    Yonne (89) <br />à 3h30 de Satrouville
+                    Yonne (89) <br />à 3h30 de Sartrouville
                 </p>
                 <Link to="https://www.abracadaroom.com/fr/reservation-le-ptit-monde-du-morvan-bulles-bulle-ecureuil-4087/">
                     <button className="buttonGift">
@@ -66,7 +66,7 @@ const Gift = () => {
                 </Link>
                 <Link to="/game">
                     <button className="buttonGiftGame">
-                        Super ce cadeau, mais j'aimerais rejouer...
+                        Super ce cadeau mais j'aimerais rejouer...
                     </button>
                 </Link>
             </div>

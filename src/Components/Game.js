@@ -14,6 +14,18 @@ function App() {
     const [win, setWin] = useState(false);
 
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toLowerCase().split("");
+    const easyWords = [
+        "bulle",
+        "bourgogne",
+        "paisible",
+        "nature",
+        "voyage",
+        "nuit",
+        "escapade",
+        "champetre",
+        "jacuzzi",
+        "romantique",
+    ];
     const dictionary = [
         "tyran",
         "valse",
@@ -43,8 +55,8 @@ function App() {
 
     //Choisir aléatoirement, un mot du dictionnaire
     const generateWord = () => {
-        const randomIndex = Math.floor(Math.random() * 19);
-        const wordToFind = dictionary[randomIndex].split("");
+        const randomIndex = Math.floor(Math.random() * 9);
+        const wordToFind = easyWords[randomIndex].split("");
         return wordToFind;
     };
 
@@ -94,10 +106,20 @@ function App() {
             // alert("Gagné !");
             setWin(true);
         } else if (maxAttempt === 1) {
-            alert('Perdu ! Le mot était "' + word + '"');
+            alert("Perdu ! Le mot était " + word.join("").toUpperCase());
             refreshPage();
         }
     };
+
+    let text = "";
+    const textAttempt = () => {
+        if (maxAttempt === 1) {
+            text = "Plus que " + maxAttempt + " essai";
+        } else {
+            text = "Plus que " + maxAttempt + " essais";
+        }
+    };
+    textAttempt();
 
     useEffect(() => {
         setWord(generateWord);
@@ -123,12 +145,22 @@ function App() {
                         </button>
                     </div>
                     <div className="app">
-                        <h1>Qui veut gagner un cadeau ?</h1>
+                        <p className="intro">
+                            Trouve le mot mystère pour accéder à ton cadeau...
+                        </p>
+                        {/* <h1>Qui veut gagner un cadeau ?</h1> */}
                         {/* <p>Le mot à trouver est : {word}</p> */}
 
-                        <div>
+                        <div className="underscore">
+                            {hiddenWord.map((letter) => (
+                                <p className="underscoreWord">{letter}</p>
+                            ))}
+                        </div>
+
+                        <div className="attempt">
                             <p className="attemptText">
-                                Plus que {maxAttempt} essais
+                                {/* Plus que {maxAttempt} essais */}
+                                {text}
                             </p>
                             {
                                 <Heart
@@ -136,12 +168,6 @@ function App() {
                                     maxAttempt={maxAttempt}
                                 />
                             }
-                        </div>
-
-                        <div className="underscore">
-                            {hiddenWord.map((letter) => (
-                                <p className="underscoreWord">{letter}</p>
-                            ))}
                         </div>
 
                         <div className="alphabet">
