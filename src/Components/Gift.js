@@ -13,11 +13,11 @@ const Gift = () => {
                 <h1 className="h1Gift">2 nuits dans une bulle en Bourgogne</h1>
                 <div className="imageGift">
                     <img src={image1} alt="La chambre" className="image" />
-                    {/* <img
+                    <img
                         src={image2}
                         alt="Une autre vue de la chambre"
                         className="image"
-                    /> */}
+                    />
                     <img
                         src={image3}
                         alt="Une 3e vue de la chambre"
