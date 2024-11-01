@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Confettis = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const colors = ["#642ca9", "#ff36ab", "#fffff", "#ffb8de", "#ffdde1"];
+    const colors = ["#df6315", "#fff2e9", "#fffff", "#f25845", "#efb636"];
 
     return (
         <>

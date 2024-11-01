@@ -12,20 +12,16 @@
 
 body {
     font-family: "Glacial-Indifference";
-    background-image: url("../img/pexels-jess-loiterton-4603529.jpg");
     background-size: cover;
-    background-position: bottom;
-    -webkit-animation: slidein 15s;
-    animation: slidein 15s;
+    background-position: top;
+}
 
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+.bodyJeu {
+    background-image: url("../img/fond_jeu.png");
+}
 
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-
-    -webkit-animation-direction: alternate;
-    animation-direction: alternate;
+.bodyGame {
+    background-image: url("../img/fond_kdo.png");
 }
 
 @-webkit-keyframes slidein {
@@ -61,8 +57,7 @@ body {
 
 h1 {
     font-size: 60px;
-    text-transform: uppercase;
-    color: #6f2dbd;
+    color: #df6315;
     font-family: "Happy-Day";
     letter-spacing: 5px;
     text-align: center;
@@ -71,13 +66,15 @@ h1 {
 
 .intro {
     text-align: center;
-    font-size: 30px;
+    font-size: 48px;
+    margin: 70px 0 20px 0;
 }
 
 .button {
     font-size: 16px;
     font-family: "Glacial-Indifference";
-    color: #6f2dbd;
+    color: #df6315;
+    background: #fff2e9;
     text-align: center;
     margin: 10px;
     padding: 6px 10px;
@@ -88,7 +85,7 @@ h1 {
 
 .button:hover {
     color: white;
-    background-color: #6f2dbd;
+    background-color: #df6315;
     font-weight: bold;
 }
 
@@ -115,7 +112,7 @@ h1 {
     font-size: 50px;
     text-align: center;
     text-transform: uppercase;
-    color: #6f2dbd;
+    color: #df6315;
     margin: 20px;
     padding: 16px 16px 12px 16px;
     border: none;
@@ -126,7 +123,7 @@ h1 {
 
 .startGameButton:hover {
     color: white;
-    background-color: #6f2dbd;
+    background-color: #df6315;
 }
 
 /*-----------GIFT SCREEN */
@@ -141,13 +138,11 @@ h1 {
 }
 
 .h1Gift {
-    font-size: 40px;
-    margin: 0;
-    text-transform: uppercase;
-    color: #6f2dbd;
-    font-family: "Happy-Day";
+    font-size: 60px;
+    color: #ef4b46;
+    font-family: "Glacial-Indifference";
     letter-spacing: 5px;
-    margin: 30px;
+    margin: 150px 0 50px 0;
 }
 
 .textGift {
@@ -155,7 +150,6 @@ h1 {
     text-align: center;
     font-size: 22px;
     line-height: 1.5;
-    padding-bottom: 8px;
 }
 
 .adressGift {
@@ -166,7 +160,7 @@ h1 {
     font-size: 20px;
     text-align: center;
     font-family: "Glacial-Indifference";
-    color: #6f2dbd;
+    color: #df6315;
     margin: 20px;
     padding: 12px 16px;
     border: none;
@@ -178,7 +172,7 @@ h1 {
     font-size: 20px;
     text-align: center;
     font-family: "Glacial-Indifference";
-    color: #6f2dbd;
+    color: #df6315;
     margin: 20px;
     padding: 12px 16px;
     border: none;
@@ -188,19 +182,19 @@ h1 {
 
 .buttonGift:hover {
     color: white;
-    background-color: #6f2dbd;
+    background-color: #df6315;
 }
 
 .buttonGiftGame {
     font-size: 16px;
     text-align: center;
     font-family: "Glacial-Indifference";
-    background-color: #6f2dbd;
+    background-color: #ef4b46;
     color: white;
     margin: 20px;
-    padding: 8px 7px 10px 7px;
+    padding: 8px 20px 10px 20px;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     cursor: pointer;
 }
 
@@ -209,18 +203,18 @@ h1 {
     font-size: 50px;
     text-align: center;
     text-transform: uppercase;
-    color: #6f2dbd;
-    background-color: rgba(255, 255, 255, 0.3);
+    color: #df6315;
+    background-color: transparent;
     margin: 20px;
     padding: 24px 24px 20px 24px;
-    border: solid #6f2dbd;
-    border-radius: 20px;
+    border: none;
+    border-radius: 50px;
     cursor: pointer;
 }
 
 .getGiftButton:hover {
     color: white;
-    background-color: #6f2dbd;
+    background-color: #df6315;
 }
 
 .imageGift {
@@ -247,8 +241,9 @@ h1 {
 
 .underscoreWord {
     margin: 0 15px;
-    font-size: 60px;
-    color: #47126b;
+    font-size: 38px;
+    line-height: 60px;
+    color: #df6315;
     text-transform: uppercase;
 }
 
@@ -258,7 +253,6 @@ h1 {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    max-width: 900px;
 }
 
 .letter {
@@ -269,15 +263,15 @@ h1 {
     height: 70px;
     margin: 10px;
     padding-top: 5px;
-    background-color: white;
-    color: #a663cc;
+    background-color: #fff2e9;
+    color: #df6315;
     border: none;
     border-radius: 35px;
     cursor: pointer;
 }
 
 .letter:hover {
-    background-color: #a663cc;
+    background-color: #df6315;
     color: white;
 }
 
@@ -286,11 +280,11 @@ h1 {
 .attemptText {
     text-align: center;
     font-style: italic;
-    color: #47126b;
+    color: #df6315;
 }
 
 .attempt {
-    margin-bottom: 30px;
+    margin: 0 0 40px 0;
 }
 
 #life {
@@ -302,7 +296,7 @@ h1 {
 }
 
 .heart {
-    background-color: #fff0f2;
+    background-color: #fff2e9;
     display: inline-block;
     height: 20px;
     margin: 0 20px;
@@ -344,7 +338,7 @@ h1 {
         margin: 30px 0 10px 0;
     }
     .intro {
-        font-size: 18px;
+        font-size: 25px;
         margin: 15px 20px 0 20px;
     }
     .letter {
@@ -377,6 +371,7 @@ h1 {
     .underscoreWord {
         margin: 25px 5px 0 5px;
         font-size: 40px;
+        line-height: 40px;
     }
     .textGift {
         margin: 0 20px;
